@@ -20,12 +20,7 @@ ao_get_leaners <- function(
 
 }
 
-#' Print oa leaners
-#'
-#' @param x leaners table
-#' @param ... Using in default print()
-#'
-#' @return Using only for output token in console
+#' @export
 print.oa_leaners <- function (x, ...) {
 
   cli_div(theme = list (span.obj_name = list(color = "orange", "font-style" = 'bold')))
@@ -33,12 +28,14 @@ print.oa_leaners <- function (x, ...) {
   cli_end()
 
   cli_text("Total leaners: {nrow(x)}")
-  cli_text("Average spent time in academy: ", round(mean(x$spent_time_in_academy), 1))
-  cli_text("Number od certificates: {sum(x$certificates_amount)}")
-  cli_text("Total score: {sum(x$score)}")
+  if ( 'spent_time_in_academy' %in% names(x) ) cli_text("Average spent time in academy: ", round(mean(x$spent_time_in_academy), 1))
+  if ( 'certificates_amount' %in% names(x) ) cli_text("Number od certificates: {sum(x$certificates_amount)}")
+  if ( 'score' %in% names(x) ) cli_text("Total score: {sum(x$score)}")
 
-  main_countri <- count(as_tibble(x), .data$country, sort = T) %>% slice_head(1)
-  cli_text("Main country: {main_countri$country} ({round(main_countri$n / nrow(x) * 100, 0)}%)")
+  if ( 'country' %in% names(x) ) {
+    main_countri <- count(as_tibble(x), .data$country, sort = T) %>% slice_head(n = 1)
+    cli_text("Main country: {main_countri$country} ({round(main_countri$n / nrow(x) * 100, 0)}%)")
+  }
 
   print(as_tibble(x), ...)
 

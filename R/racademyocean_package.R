@@ -8,4 +8,6 @@
 #' @import dplyr
 #' @importFrom pbapply pblapply
 #' @importFrom rlang "%||%" set_names
+#' @importFrom purrr map
+#' @import utils
 "_PACKAGE"

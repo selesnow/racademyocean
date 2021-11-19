@@ -3,7 +3,7 @@
 oa_make_body<- function(
   action,
   options = NULL,
-  value = NULL
+  values = NULL
 ) {
 
   option_name <- str_glue('options[{options}]')
@@ -13,8 +13,8 @@ oa_make_body<- function(
     )
 
   if ( ! is.null(options) ) {
-    r_body$options <- value
-    r_body <- set_names(r_body, c('action', option_name))
+    r_body <- append(r_body, map(values, ~ .))
+    r_body <- set_names(r_body, c('action', as.character(option_name)))
   }
 
  return(r_body)
@@ -34,7 +34,7 @@ oa_request <- function(
                 req_headers(Authorization = oa_access_token(token)) %>%
                 req_perform()
     },
-    until     = ~ resp_status(.) == 200,
+    until     = ~ inherits(., "httr2_response") && resp_status(.) == 200,
     interval  = getOption('oa.interval'),
     max_tries = getOption('oa.max_tries')
   )

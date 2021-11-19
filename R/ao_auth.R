@@ -25,6 +25,11 @@ ao_auth <- function(
 
     resp <- readRDS(file_path)
 
+    if ( resp$expires_at < Sys.time() ) {
+      file.remove(file_path)
+      ao_auth(client_id, client_secret, token_path)
+    }
+
   } else {
 
     if ( is.null(client_secret) ) cli_abort('Set client_secret')
