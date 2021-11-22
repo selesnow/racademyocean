@@ -4,9 +4,9 @@
 \name{racademyocean-package}
 \alias{racademyocean}
 \alias{racademyocean-package}
-\title{racademyocean: What the Package Does (One Line, Title Case)}
+\title{racademyocean: Client for 'AcademyOcean API'}
 \description{
-What the package does (one paragraph).
+Provide function for work with 'AcademyOcean API' <https://academyocean.com/api>.
 }
 \author{
 \strong{Maintainer}: Alexey Seleznev \email{selesnow@gmail.com} (\href{https://orcid.org/0000-0003-0410-7385}{ORCID})
