@@ -12,7 +12,7 @@ oa_make_body<- function(
     action  = action
     )
 
-  if ( ! is.null(options) ) {
+  if ( ! is.null(values) ) {
     r_body <- append(r_body, map(values, ~ .))
     r_body <- set_names(r_body, c('action', as.character(option_name)))
   }
@@ -41,6 +41,10 @@ oa_request <- function(
 
   resp <- resp_body_json(resp)
 
+  if ( 'error' %in% names(resp) ) {
+    cli_abort(resp$error$message)
+  }
+
   return(resp)
 
 }
@@ -60,3 +64,4 @@ oa_set_class <- function(x, obj_class = NULL) {
   class(x) <- c(obj_class, class(x))
   return(x)
 }
+

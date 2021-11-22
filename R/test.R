@@ -8,6 +8,6 @@ if ( FALSE ) {
   course_progress <- select(course_progress, -content_progress)
   passive_leaners <- ao_get_passive_leaners()
   course_progress_passive <- ao_get_course_progress(passive_leaners)
-  certs <- ao_get_certificates(head(leaners, 10))
+  certs <- ao_get_certificates(leaners)
 
 }
