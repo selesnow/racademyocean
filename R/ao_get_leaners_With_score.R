@@ -28,7 +28,8 @@ ao_get_leaners_with_score  <- function(
   cli_alert_info('Send request')
   resp <- oa_request(body = rbody, token = suppressMessages(ao_auth()))
   cli_alert_info('Parse result')
-  res <- oa_parser(resp)
+  res <- oa_parser(resp)%>%
+         oa_set_class('oa_leaners')
   cli_alert_success('Loaded {nrow(res)} learners')
 
   return(res)

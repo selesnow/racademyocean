@@ -1,18 +1,12 @@
-#' This returns a list of learners who registered in an Academy but took no further actions (no lessons opened)
+#' This returns an array of learners who logged in to the Academy more than one time.
 #'
-#' @return tibble with passive leaners
+#' @return tibble with leaners
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#' passive <- ao_get_passive_learners()
-#' }
-ao_get_passive_learners <- function(
-) {
+ao_get_learners_repeated_logins <-  function() {
 
   cli_alert_info('Compose request body')
   rbody <- oa_make_body(
-    action = 'passiveLearners'
+    action = 'learnersRepeatedLogIns'
   )
 
   cli_alert_info('Send request')
