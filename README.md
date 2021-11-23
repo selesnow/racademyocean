@@ -1,5 +1,5 @@
 
-# racademyocean
+# racademyocean<a href='https://cran.r-project.org/package=racademyocean'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
 <!-- badges: start -->
 <!-- badges: end -->
