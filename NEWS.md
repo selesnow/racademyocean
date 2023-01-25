@@ -1,4 +1,8 @@
-# racademyocean (development version)
+# racademyocean 0.3.0
+
+* Add function `ao_get_leaners_progress_by_course()`
+
+# racademyocean 0.2.0
 
 * Add package logo
 
