@@ -50,8 +50,8 @@ ao_get_leaners_progress_by_course_helper <- function(
   rbody <- oa_make_body(action = 'learnersProgressByCourse', options = opt_name, values = opt_val)
   resp  <- oa_request(body = rbody, token = suppressMessages(ao_auth()))
   res   <- oa_parser(resp$learners) %>%
-           mutate(field = opt_val) %>%
-           set_names(., c(names(.)[1:ncol(.)-1], opt_name)) %>%
+           mutate(field = opt_val)
+  res   <- set_names(res, c(names(res)[1:ncol(res)-1], opt_name)) %>%
            mutate(
              across(ends_with('Date'), \(x) as.Date(x, format = '%m/%d/%Y'))
            )

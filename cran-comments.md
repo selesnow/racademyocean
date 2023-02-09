@@ -1,15 +1,7 @@
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors ✔ | 0 warnings ✔ | 0 notes ✔
 
-* This is a new release.
-
-# racademyocean 0.3.1
-
-* Fix cl argument in `ao_get_course_progress.default`
-
-# racademyocean 0.3.0
-
-* Add function `ao_get_leaners_progress_by_course()`
-
-# racademyocean 0.2.0
+* Fix Note^:  ao_get_leaners_progress_by_course_helper: no visible binding for global
+    variable '.'
+  Undefined global functions or variables:
