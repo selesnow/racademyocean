@@ -29,6 +29,7 @@ devtools::install_github("selesnow/racademyocean")
 * `ao_get_leaners()`
 * `ao_get_teams()`
 * `ao_course_progress()`
+* `ao_get_leaners_progress_by_course()`
 * `ao_get_leaners_amount_from_countries()`
 * `ao_get_leaners_from_country()`
 * `ao_get_leaners_registered_at()`
@@ -51,6 +52,8 @@ ao_auth(
 )
 
 academies <- ao_get_academies()
-leaners <- ao_get_leaners()
+leaners   <- ao_get_leaners()
+
+course_progress <- ao_get_course_progress(leaners)
 ```
 
