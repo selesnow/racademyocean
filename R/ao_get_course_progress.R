@@ -44,7 +44,7 @@ ao_get_course_progress_helper <- function(
   email
 ) {
 
-  rbody <- oa_make_body(action = 'courseProgress', options = 'email', values = email)
+  rbody <- oa_make_body(action = 'courseProgress', options = c("email", "only_displayed_courses"), values = c(email, TRUE))
   resp  <- oa_request(body = rbody, token = suppressMessages(ao_auth()))
   res   <- oa_parser(resp) %>%
            mutate(email = email)
